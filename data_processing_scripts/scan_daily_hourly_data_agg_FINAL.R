@@ -49,7 +49,7 @@ for(i in ID){
 print("data collected and processed!")
 
 #write or append all raw hourly data
-setwd("/home/mplucas/data/raw/scan/raw_parsed")#server path raw files
+setwd("/usr/src/app/data/raw/scan/raw_parsed")#server path raw files
 files<-list.files()
 all_month_filename<-paste0("scan_raw_all_data_",format((Sys.Date()-1),"%Y_%m"),".csv")#dynamic filename that includes month year so when month is done new file is writen
 if(max(as.numeric(files==all_month_filename))>0){
@@ -58,7 +58,7 @@ if(max(as.numeric(files==all_month_filename))>0){
 
 
 #write or append daily rf data
-setwd("/home/mplucas/data/raw/scan/daily_agg")#server path
+setwd("/usr/src/app/data/raw/scan/daily_agg")#server path
 files<-list.files()
 rf_month_filename<-paste0("scan_daily_rf_",format((Sys.Date()-1),"%Y_%m"),".csv")#dynamic filename that includes month year so when month is done new file is writen
 if(max(as.numeric(files==rf_month_filename))>0){

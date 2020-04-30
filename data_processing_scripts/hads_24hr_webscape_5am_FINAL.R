@@ -46,8 +46,7 @@ url<-"https://hads.ncep.noaa.gov/nexhads2/servlet/DecodedData?sinceday=3&hsa=nil
 page<-readLines(url)
 
 #save raw data
-setwd("/home/mplucas/data/raw/hads/raw_files")#sever path for un-parsed hads files
-#setwd("C:/Users/mpluc/OneDrive/Documents/hads_testing/test15jan2020")#local pc path
+setwd("/usr/src/app/data/raw/hads/raw_files")#changed for containerization
 
 page_name<-paste0("hads_hi_page_start",format(Sys.Date()-3,"%Y_%m_%d"),"_end",format(Sys.Date()-1,"%Y_%m_%d"),"_5am.txt")
 writeLines(page,page_name)
@@ -60,8 +59,7 @@ all_hads$null<-NULL
 #head(all_hads)
 
 #write or append data to raw all data table
-setwd("/home/mplucas/data/raw/hads/parsed_data")#sever path for un-parsed hads files
-#setwd("C:/Users/mpluc/OneDrive/Documents/hads_testing/test15jan2020")#local pc path
+setwd("/usr/src/app/data/raw/hads/parsed_data")#changed for containerization
 
 unagg_hads_monthly_filename<-paste0(format((Sys.Date()-1),"%Y_%m"),"_hads_native_data.csv")#dynamic filename that includes month year so when month is done new file is writen
 
