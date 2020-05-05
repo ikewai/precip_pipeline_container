@@ -8,10 +8,11 @@ echo "//APT::Default-Release \"testing\";" > /etc/apt/apt.conf.d/default
 apt update
 
 # Next, get non-R dependencies
-apt install nano -y         # personal preference for CLI text editor
-apt install libxml2-dev -y  # necessary for R package RNRCS
-apt install libssl-dev -y   # necessary for R package openssl
-apt install curl -y         # necessary for R package Rcurl
+apt install nano -y                     # preference
+apt install libxml2-dev -y              # RNRCS
+apt install libssl-dev -y               # openssl
+apt install curl -y                     # Rcurl
+apt install libcurl4-openssl-dev -y     # Rcurl
 
 ### Get necessary R-type packages
 r rainfall-prereqs.r
