@@ -1,7 +1,6 @@
 #Script for Data Processing Pipeline (currently a skeleton)
 
-#Planning to be repeated - cron would likely be more elegant than trying to
-#integrate a time-based loop element
+#(Proposed) Get latest version of processing scripts
 
 
 
