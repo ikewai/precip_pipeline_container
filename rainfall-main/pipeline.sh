@@ -1,11 +1,5 @@
 #Script for Data Processing Pipeline
 
-## (Proposed) Get latest version of processing scripts
-# Needs public final versions of the scripts:
-# cd <folder for scripts>
-# wget <URL of first script to grab> ... <URL of last script to grab>
-
-
 ## Script Execution
 
 # HADS
