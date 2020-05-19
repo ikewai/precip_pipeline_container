@@ -6,6 +6,9 @@ COPY . .
 
 ## Container Setup 
 
+# Get necessary packages
+RUN apt install -y cron nano
+
 # Set up cron
 RUN touch "/var/spool/cron/crontabs/rainfall_cron"
 RUN crontab "var/spool/cron/crontabs/rainfall_cron"
