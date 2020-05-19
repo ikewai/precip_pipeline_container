@@ -17,4 +17,4 @@ RUN apt install -y libxml2-dev libssl-dev curl libcurl4-openssl-dev
 # R dependencies for rainfall scripts
 RUN r -e 'install.packages(c("ggplot2","xts","RNRCS","metScanR","lubridate"))'
 
-CMD ["bash", "container-setup.sh"]
+CMD ["sleep", "infinity"]
