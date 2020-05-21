@@ -11,7 +11,7 @@ RUN apt install -y cron nano
 
 # Set up cron
 RUN touch "/var/spool/cron/crontabs/rainfall_cron"
-RUN echo "* * * * * bash pipeline.sh > /usr/src/app/pipeline.log" > "/var/spool/cron/crontabs/rainfall_cron"
+RUN echo "* * * * * /bin/bash /usr/src/app/pipeline.sh > /usr/src/app/pipeline.log" > "/var/spool/cron/crontabs/rainfall_cron"
 RUN crontab -u root "/var/spool/cron/crontabs/rainfall_cron"
 
 # (Proposed) Get latest versions of data processing scripts
