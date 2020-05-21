@@ -6,16 +6,28 @@ COPY . .
 
 ## Container Setup 
 
-# Get necessary packages
-RUN apt install -y cron nano
+# for testing
+RUN apt install -y nano 
 
-# Set up cron
-RUN touch "/var/spool/cron/crontabs/rainfall_cron"
-RUN echo "* * * * * /bin/bash /usr/src/app/pipeline.sh > /usr/src/app/pipeline.log" > "/var/spool/cron/crontabs/rainfall_cron"
-RUN crontab -u root "/var/spool/cron/crontabs/rainfall_cron"
+## Create directories for scripts, intermediate data, etc
+# For reference:
+# hads_final uses data/raw/hads/raw_files   , 
+#                 data/raw/hads/parsed_data ,
+#                 data/raw/hads/daily_agg   ;
+# 
+# scan_final uses data/raw/scan/raw_parsed  ,
+#                 data/raw/scan/daily_agg   ;
 
-# (Proposed) Get latest versions of data processing scripts
-#RUN mkdir scripts
-#RUN wget <URL of first script>...<URL of last script> -P scripts/
+RUN mkdir -p scripts \
+data/raw/hads/raw_files \
+data/raw/hads/parsed_data \
+data/raw/hads/daily_agg \
+data/raw/scan/raw_parsed \
+data/raw/scan/daily_agg 
+
+# Get latest versions of data processing scripts OR
+# Alternative would be supplying the scripts at runtime.
+#RUN wget <URL of first script>...<URL of last script> -P scripts
+
 
 CMD ["sleep", "infinity"]
