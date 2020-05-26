@@ -25,8 +25,7 @@ data/raw/hads/daily_agg \
 data/raw/scan/raw_parsed \
 data/raw/scan/daily_agg 
 
-# Get latest versions of data processing scripts OR
-# Alternative would be supplying the scripts at runtime.
+# Get latest versions of data processing scripts
 #RUN wget <URL of first script>...<URL of last script> -P scripts
 
 
