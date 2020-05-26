@@ -6,9 +6,6 @@ COPY . .
 
 ## Container Setup 
 
-# for testing
-RUN apt install -y nano 
-
 ## Create directories for scripts, intermediate data, etc
 # For reference:
 # hads_final uses data/raw/hads/raw_files   , 
@@ -34,4 +31,4 @@ https://raw.githubusercontent.com/ikewai/precip_pipeline_container/master/final_
 -P scripts
 
 
-CMD ["sleep", "infinity"]
+CMD ["bash", "pipeline.sh"]
