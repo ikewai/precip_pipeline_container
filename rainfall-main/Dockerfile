@@ -1,4 +1,4 @@
-FROM mdodgehawaii/rainfall-core:latest
+FROM ikewai/rainfallbase
 
 WORKDIR /usr/src/app
 
