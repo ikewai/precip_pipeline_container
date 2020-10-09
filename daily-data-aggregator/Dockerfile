@@ -2,7 +2,7 @@ FROM ikewai/rainfallbase
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY pipeline.sh /usr/src/app/pipeline.sh
 
 ## Container Setup 
 
