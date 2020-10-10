@@ -1,9 +1,5 @@
 FROM r-base:latest
 
-WORKDIR /usr/src/app
-
-COPY . .
-
 ## Dependencies
 
 # Fix r-base's apt shenanigans
