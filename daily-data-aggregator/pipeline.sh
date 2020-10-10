@@ -11,6 +11,5 @@ r scripts/hads_final.r
 # Aggregation
 r scripts/scan_final.r
 
-sleep infinity
 exit 0
 EOF
