@@ -3,6 +3,7 @@ FROM ikewai/rainfallbase
 WORKDIR /usr/src/app
 
 COPY pipeline.sh /usr/src/app/pipeline.sh
+COPY uploader.py /usr/src/app/uploader.py
 
 ## Container Setup 
 
