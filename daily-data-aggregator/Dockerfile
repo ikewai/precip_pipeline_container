@@ -5,11 +5,6 @@ WORKDIR /usr/src/app
 COPY pipeline.sh /usr/src/app/pipeline.sh
 COPY uploader.py /usr/src/app/uploader.py
 
-##### set user, chmod all folders/data/files 777
-RUN useradd -ms /bin/bash abaco
-RUN chmod -R 777 /usr/src/app 
-USER abaco
-
 ## Container Setup 
 
 ## Create directories for scripts, intermediate data, etc
@@ -35,5 +30,9 @@ https://raw.githubusercontent.com/ikewai/precip_pipeline_container/master/final_
 https://raw.githubusercontent.com/ikewai/precip_pipeline_container/master/final_scripts/scan_final.r \
 -P scripts
 
+# Set user to abaco, chmod everything in /usr/src/app 777, recursively
+RUN useradd -ms /bin/bash abaco
+RUN chown abaco /usr/src/app -R
+USER abaco
 
 CMD ["bash", "pipeline.sh"]
