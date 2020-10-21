@@ -11,5 +11,8 @@ r scripts/hads_final.r
 # Aggregation
 r scripts/scan_final.r
 
+# Upload Data/Results
+python3 uploader.py
+
 exit 0
 EOF
