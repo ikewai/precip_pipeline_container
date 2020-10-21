@@ -2,7 +2,13 @@ FROM ikewai/rainfallbase
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY pipeline.sh /usr/src/app/pipeline.sh
+COPY uploader.py /usr/src/app/uploader.py
+
+##### set user, chmod all folders/data/files 777
+RUN useradd -ms /bin/bash abaco
+RUN chmod -R 777 /usr/src/app 
+USER abaco
 
 ## Container Setup 
 
@@ -23,8 +29,7 @@ data/raw/scan/raw_parsed \
 data/raw/scan/daily_agg 
 
 # Get latest versions of data processing scripts
-# Future: These scripts will come from a dedicated repo, and Docker will be 
-#  set up such that a fresh build will be generated whenever either repo is modified.
+# Future: These scripts will come from the 'rainfallscripts' repo, once it's ready.
 RUN wget \
 https://raw.githubusercontent.com/ikewai/precip_pipeline_container/master/final_scripts/hads_final.r \
 https://raw.githubusercontent.com/ikewai/precip_pipeline_container/master/final_scripts/scan_final.r \
