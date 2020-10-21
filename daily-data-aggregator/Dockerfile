@@ -8,7 +8,7 @@ COPY uploader.py /usr/src/app/uploader.py
 ## Container Setup 
 
 # Install Git, to grab the scripts
-RUN apt install git
+RUN apt install git -y
 
 ## Create directories for scripts, intermediate data, etc
 # For reference:
