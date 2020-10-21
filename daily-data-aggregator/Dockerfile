@@ -5,6 +5,11 @@ WORKDIR /usr/src/app
 COPY pipeline.sh /usr/src/app/pipeline.sh
 COPY uploader.py /usr/src/app/uploader.py
 
+##### set user, chmod all folders/data/files 777
+RUN useradd -ms /bin/bash abaco
+RUN chmod -r 777 /usr/src/app 
+USER abaco
+
 ## Container Setup 
 
 ## Create directories for scripts, intermediate data, etc
