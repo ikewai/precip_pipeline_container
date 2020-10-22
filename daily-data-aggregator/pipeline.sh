@@ -25,16 +25,16 @@ raw/scan/daily_agg
 ls /work
 
 # HADS
-r scripts/hads_final.r
+r /usr/src/app/scripts/hads_final.r
 
 # Aggregation
-r scripts/scan_final.r
+r /usr/src/app/scripts/scan_final.r
 
 # For initial testing: display the contents of the raw_parsed folder.
 ls /work/data/raw/scan/raw_parsed
 
 # Upload Data/Results
-python3 uploader.py
+python3 /usr/src/app/uploader.py
 
 exit 0
 EOF
