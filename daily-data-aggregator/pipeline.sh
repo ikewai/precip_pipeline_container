@@ -10,7 +10,6 @@
 # 
 # scan_final uses data/raw/scan/raw_parsed  ;
 #                 data/raw/scan/daily_agg   ;
-mkdir /work
 
 chmod -R 777 /work
 
