@@ -1,18 +1,40 @@
 #Script for Data Processing Pipeline
 
 ## Script Execution
+# /work is the working directory that gets mounted in the container by abaco.
+#
+# For reference:
+# hads_final uses data/raw/hads/raw_files   ; 
+#                 data/raw/hads/parsed_data ;
+#                 data/raw/hads/daily_agg   ;
+# 
+# scan_final uses data/raw/scan/raw_parsed  ;
+#                 data/raw/scan/daily_agg   ;
 
-# Testing
-echo "The current time is: " `date` > /usr/src/app/testing.log
+chmod -R 777 /work
+
+cd /work
+mkdir -p \
+raw/hads/raw_files \
+raw/hads/parsed_data \
+raw/hads/daily_agg \
+raw/scan/raw_parsed \
+raw/scan/daily_agg 
+
+# For initial testing: display the contents of the work folder.
+ls /work
 
 # HADS
-r scripts/hads_final.r
+r /usr/src/app/scripts/hads_final.r
 
 # Aggregation
-r scripts/scan_final.r
+r /usr/src/app/scripts/scan_final.r
+
+# For initial testing: display the contents of the raw_parsed folder.
+ls /work/data/raw/scan/raw_parsed
 
 # Upload Data/Results
-python3 uploader.py
+python3 /usr/src/app/uploader.py
 
 exit 0
 EOF
