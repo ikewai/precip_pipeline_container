@@ -11,7 +11,7 @@ COPY uploader.py /usr/src/app/uploader.py
 # Install Git, to grab the scripts, and Python, to execute them.
 # Tapipy may be needed for using the uploader script, once it is written.
 RUN apt install git python3 python3-pip -y
-RUN pip3 install tapipy
+RUN pip3 install agavepy
 
 # Get latest versions of data processing scripts
 # Future: These scripts will come from the 'rainfallscripts' repo, once it's ready.
