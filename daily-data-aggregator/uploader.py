@@ -27,10 +27,12 @@ else:
     print("the message isn't in json format.")
     exit(1)
 
-base_url        = msg_dict['ul_base_url']
+upload_url      = msg_dict['ul_upload_url']
 api_token       = msg_dict['ul_api_token']
-files_to_upload = msg_dict['ul_files_to_upload']
+ref_token       = msg_dict['ul_ref_token']
+files_to_upload = json.loads(msg_dict['ul_files_to_upload'])
 
+# Old curl implementation.
 def upload_file_via_curl(base_url, api_token, local_path, remote_path):
     upload_url = base_url + '/files/v2/media/system/mydata-mdodge'
     post_file = ('\'' + 'curl -sk -H "Authorization: Bearer ' + api_token + 
@@ -39,17 +41,29 @@ def upload_file_via_curl(base_url, api_token, local_path, remote_path):
     res = subprocess.run(["/bin/bash", "-c", post_file], capture_output=True).stdout.decode('utf8')
     return res
 
+# New python/requests implementation. It still needs some work.
+# This is currently (naively) assuming all uploads will be CSVs.
+# Will update to include content type as a parameter.
+# Also, if any of these files are large, it is recommended to use stream
+#  uploading. That will require pulling in the requests-toolbelt library,
+#  as recommended by the documentation for the requests library.
+def upload_file_via_requests(base_url, api_token, local_path, remote_path):
+    headers = {
+        'accept': 'application/json',
+        'authorization': "Bearer " + api_token,
+        'content-type': 'application/json; charset=utf-8'
+    }
+    files = {}
+    for file_path in files_to_upload:
+        # Parse for file name.
+        # code here
+        files.update{
+            'file': ('example_file_name.csv', open(local_path, 'rb'))
+        }
+    urlString = upload_url
+    res = requests.post(url=, files)
+
 for file_path in files_to_upload:
     print('Trying to upload' + file_path + '.\n')
     upload_file_via_curl(base_url=base_url, api_token=api_token, local_path=file_path, remote_path='')
     
-
-# Agavepy method (as opposed to curl)
-# Make the ag object from our variables.
-# ag = Agave(api_server=base_url, token=api_token)
-
-# Time to start uploading files.
-# Note to self: determine where stuff gets uploaded to 
-# for file_path in files_to_upload:
-    # print('Trying to upload' + file_path + '.')
-    # ag.files_upload(files_to_upload[file_path], (''))
