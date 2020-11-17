@@ -9,3 +9,5 @@
  - `rainfall-core`: A base container with all the necessary dependencies to execute the workflows in the other containers.
  - `daily-data-aggregator`: This container handles daily aggregation and processing of data into useful forms.
  - `monthly-map-creator`: (coming soon) This container handles the monthly generation of rainfall prediction maps.
+
+ More detailed documentation and graphics on the execution process can be found in the `docs` folder. 

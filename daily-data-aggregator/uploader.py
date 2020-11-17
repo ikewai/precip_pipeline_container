@@ -4,16 +4,19 @@
 
 # Notes for continued implementation:
 # The message sent to the actor needs to be a JSON object that includes the following:
-# - ul_base_url: The base URL to access the science gateway that files will be stored in.
-# - ul_api_token: The short-lived access-only token to run this uploader with.
-# - ul_files_to_upload: A JSON object, serving as a list of the absolute paths
-#                       of the files we want to upload during this run.
+# - ul_upload_url:  The base URL to access the science gateway that files will be stored in.
+# - ul_api_token:   The api token to run this uploader with.
+# - ul_ref_token:   The refresh token to refresh the api token, if this container
+#                   takes a very long time to execute.
+# - ul_dirs_to_upload:  A JSON object, serving as a list of the absolute paths
+#                       of the directories we want to upload during this run.
 #                       Typically, this will be the same across runs unless
 #                       something is being debugged, tested, or added.
 
 import json
 import os
-import subprocess
+import requests
+import mimetypes
 from agavepy import actors
 from agavepy import Agave
 
@@ -30,40 +33,34 @@ else:
 upload_url      = msg_dict['ul_upload_url']
 api_token       = msg_dict['ul_api_token']
 ref_token       = msg_dict['ul_ref_token']
-files_to_upload = json.loads(msg_dict['ul_files_to_upload'])
+dirs_to_upload = json.loads(msg_dict['ul_dirs_to_upload'])
 
-# Old curl implementation.
-def upload_file_via_curl(base_url, api_token, local_path, remote_path):
-    upload_url = base_url + '/files/v2/media/system/mydata-mdodge'
-    post_file = ('\'' + 'curl -sk -H "Authorization: Bearer ' + api_token + 
-                 '" -X POST -F "fileToUpload=@' + local_path +
-                 '" ' + upload_url + '\'')
-    res = subprocess.run(["/bin/bash", "-c", post_file], capture_output=True).stdout.decode('utf8')
-    return res
+# TODO: Check if api_token will still be valid for the next 30 minutes,
+#       refresh using ref_token it if it won't.
 
-# New python/requests implementation. It still needs some work.
-# This is currently (naively) assuming all uploads will be CSVs.
-# Will update to include content type as a parameter.
-# Also, if any of these files are large, it is recommended to use stream
+
+#  If any of these files end up being very large, it is recommended to use stream
 #  uploading. That will require pulling in the requests-toolbelt library,
 #  as recommended by the documentation for the requests library.
-def upload_file_via_requests(base_url, api_token, local_path, remote_path):
+def upload_files_via_requests(upload_url, api_token, dirs_to_upload):
     headers = {
         'accept': 'application/json',
         'authorization': "Bearer " + api_token,
         'content-type': 'application/json; charset=utf-8'
     }
-    files = {}
-    for file_path in files_to_upload:
-        # Parse for file name.
-        # code here
-        files.update{
-            'file': ('example_file_name.csv', open(local_path, 'rb'))
-        }
-    urlString = upload_url
-    res = requests.post(url=, files)
-
-for file_path in files_to_upload:
-    print('Trying to upload' + file_path + '.\n')
-    upload_file_via_curl(base_url=base_url, api_token=api_token, local_path=file_path, remote_path='')
     
+    # map csv to text/csv instead of application/vnd.ms-excel
+    mimetypes.add_type('text/csv', '.csv', strict=True)
+
+    file_list = []
+    for directory in dirs_to_upload:
+        for file in os.listdir(path=directory):
+            # Append this file to the list of files.
+            file_list.append(
+                ('file', (file, open(directory+file, 'rb'), mimetypes.guess_type(file)))
+            )
+    res = requests.post(headers=headers, url=upload_url, files=file_list)
+    print(res)
+
+# Finally, upload the files.
+upload_files_via_requests(upload_url, api_token, dirs_to_upload)
