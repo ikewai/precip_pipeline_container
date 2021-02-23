@@ -1,0 +1,135 @@
+"nwsli","NWS_name","date","prec_mm_24hr","hour_obs"
+"AHUH1","Ahuimanu Loop (13005)",2021-02-22,2.794,24
+"ALOH1","Aloha Tower (HI26)",2021-02-22,0,24
+"ANHH1","Anahola (12001)",2021-02-22,0,24
+"BELH1","Bellows AFS",2021-02-22,0,24
+"DLGH1","Dillingham",2021-02-22,0,24
+"GLNH1","Glenwood (5040)",2021-02-22,11.43,24
+"HAJH1","Hawaii Kai Golf Crse (HI21)",2021-02-22,0,24
+"HAKH1","Hakipuu Mauka (13004)",2021-02-22,0,24
+"HAUH1","Honaunau (15007)",2021-02-22,4.572,24
+"HJR","Kalaeloa Airport",2021-02-22,0,24
+"HKO","Kona International Airport",2021-02-22,3.048,24
+"HKUH1","Hakalau",2021-02-22,3.302,24
+"HLI","Lihue Airport",2021-02-22,0,24
+"HMK","Molokai Airport",2021-02-22,0,24
+"HNAH1","Hana Airport",2021-02-22,0.762,24
+"HNKH1","Honokaa",2021-02-22,0,24
+"HNL","Honolulu Airport",2021-02-22,0,24
+"HNPH1","Hanapepe (12002)",2021-02-22,0,24
+"HOFH1","Honouliuli",2021-02-22,0,24
+"HOG","Kahului Airport",2021-02-22,0,24
+"HTO","Hilo Airport",2021-02-22,5.334,24
+"KACH1","Kaunakakai Mauka (14004)",2021-02-22,0,24
+"KAHH1","Kahuku",2021-02-22,0,24
+"KASH1","Kahua Ranch (HI96)",2021-02-22,0.508,24
+"KAYH1","Kapapala Ranch (15003)",2021-02-22,0.254,24
+"KBSH1","Kula Branch Station (14008)",2021-02-22,0,24
+"KHEH1","Kalaheo (HI43)",2021-02-22,1.27,24
+"KHIH1","Kihei #2 (14009)",2021-02-22,0,24
+"KHKH1","Kahakuloa (14002)",2021-02-22,0,24
+"KHOH1","Kaloko-Honokohau",2021-02-22,0,24
+"KHRH1","Kohala Ranch",2021-02-22,0,24
+"KIRH1","Kiholo RG (USGS)",2021-02-22,0.254,24
+"KKRH1","Kuaokala",2021-02-22,0,24
+"KKUH1","Keaumo",2021-02-22,0,24
+"KLEH1","Kealakekua (15007)",2021-02-22,4.826,24
+"KLFH1","Kula 1",2021-02-22,0,24
+"KLOH1","Kilohana (USGS)",2021-02-22,0.254,24
+"KMHH1","Kamehame (13012)",2021-02-22,0,24
+"KMOH1","Kealakomo",2021-02-22,0.508,24
+"KMRH1","Kamananui Stream (USGS)",2021-02-22,3.048,24
+"KMUH1","Kamuela (15005)",2021-02-22,0,24
+"KNRH1","Kahana (USGS)",2021-02-22,0,24
+"KNWH1","Kulani NWR (5050)",2021-02-22,2.286,24
+"KPDH1","Kealia Pond (USFWS)",2021-02-22,0,24
+"KPIH1","Kapahi (12003)",2021-02-22,0,24
+"KPLH1","Kaupulehu",2021-02-22,4.826,24
+"KPNH1","Kepuni (USGS)",2021-02-22,0,24
+"KPRH1","Kapapala RAWS",2021-02-22,0,24
+"KRCH1","Kahuku Ranch",2021-02-22,1.016,24
+"KTAH1","Kahuku Training Area",2021-02-22,0,24
+"KUNH1","Kunia Substation (3030)",2021-02-22,0.254,24
+"KUUH1","Kamuela Upper (15002)",2021-02-22,3.048,24
+"KWSH1","Kawainui Stream (USGS)",2021-02-22,7.112,24
+"LAHH1","Lahainaluna (14011)",2021-02-22,0,24
+"LANH1","Lanai City (HI72)",2021-02-22,0.254,24
+"LIHH1","Lihue Var. Stn. (12006)",2021-02-22,0,24
+"LKHH1","Lower Kahuku",2021-02-22,2.286,24
+"LNIH1","Lanai 1",2021-02-22,0,24
+"LUAH1","Lualualei (HI05)",2021-02-22,0,24
+"LULH1","Luluku (HI15)",2021-02-22,0,24
+"MABH1","Mahinahina (14010)",2021-02-22,0,24
+"MAUH1","Maunawili (13008)",2021-02-22,0,24
+"MCRH1","Mohihi Crossing (USGS)",2021-02-22,0.254,24
+"MITH1","Mililani (3040)",2021-02-22,0.508,24
+"MKAH1","Makaha Ridge",2021-02-22,0,24
+"MKHH1","Makaha Stream (USGS)",2021-02-22,0,24
+"MKPH1","Makapulapai",2021-02-22,0,24
+"MLKH1","Molokai 1",2021-02-22,0,24
+"MNLH1","Manoa Lyon Arboretum (3050)",2021-02-22,0,24
+"MNRH1","Mana",2021-02-22,0,24
+"MOBH1","Mauna Loa Obs Stn",2021-02-22,0,24
+"MOGH1","Moanalua RG (USGS)",2021-02-22,0,24
+"MTVH1","Mountain View (5000)",2021-02-22,9.906,24
+"NENH1","Nene Cabin",2021-02-22,0,24
+"NIUH1","Niu Valley (13001)",2021-02-22,0,24
+"NUUH1","Nuuanu Upper (13007)",2021-02-22,0.254,24
+"OFSH1","Olomana Fire Station (13009)",2021-02-22,0,24
+"OMAH1","Omao (12004)",2021-02-22,0,24
+"P36","Maalaea Bay",2021-02-22,0,24
+"PACH1","Palisades (3020)",2021-02-22,4.572,24
+"PAFH1","Puu Alii",2021-02-22,0.508,24
+"PAKH1","Port Allen",2021-02-22,0,24
+"PECH1","Waipio (3010)",2021-02-22,0,24
+"PERH1","Puhe CS",2021-02-22,0,24
+"PFSH1","Palolo Fire Station (13010)",2021-02-22,0,24
+"PHAH1","Pahoa (5010)",2021-02-22,3.302,24
+"PHRH1","Puho CS",2021-02-22,0.254,24
+"PIIH1","Piihonua (5020)",2021-02-22,7.874,24
+"PKAH1","Pohakuloa Kipuka Alala",2021-02-22,0,24
+"PKKH1","Puu Kukui (USGS)",2021-02-22,1.016,24
+"PKWH1","Pohakuloa West",2021-02-22,0,24
+"PLIH1","Pali 2",2021-02-22,0.254,24
+"PMLH1","Puu Mali",2021-02-22,0,24
+"POAH1","Poamoho (3000)",2021-02-22,0,24
+"POPH1","Puu Opae",2021-02-22,0,24
+"PPLH1","Pahala (15004)",2021-02-22,0,24
+"PPRH1","Pupukea Road (USGS)",2021-02-22,1.524,24
+"PPWH1","Papaikou Well (5070)",2021-02-22,8.89,24
+"PRIH1","Princeville Airport",2021-02-22,0.762,24
+"PTWH1","Pac Tsunami Wng Ctr (3060)",2021-02-22,0,24
+"PUKH1","Pukalani (14006)",2021-02-22,0,24
+"PULH1","Puuanahulu",2021-02-22,0,24
+"PUNH1","Punaluu Pump (13013)",2021-02-22,0,24
+"PWWH1","Puu Waawaa",2021-02-22,2.794,24
+"SCBH1","Schofield Barracks",2021-02-22,0,24
+"SCEH1","Schofield East",2021-02-22,3.302,24
+"SDQH1","Saddle Quarry (USGS)",2021-02-22,3.048,24
+"SOPH1","South Point",2021-02-22,0,24
+"STVH1","St. Stephens (13006)",2021-02-22,0,24
+"TNLH1","Tunnel RG (USGS)",2021-02-22,0,24
+"ULUH1","Ulupalakua (14003)",2021-02-22,0,24
+"UPLH1","Upolu Airport",2021-02-22,0,24
+"WAFH1","Wheeler Airfield",2021-02-22,0,24
+"WAIH1","Waianae (HI17)",2021-02-22,0,24
+"WAWH1","Waiawa C.F. (3070)",2021-02-22,3.556,24
+"WBHH1","Waianae Boat Harbor",2021-02-22,0,24
+"WCCH1","Waikapu Country Club (14005)",2021-02-22,0,24
+"WEXH1","Waiakea Experiment Stn",2021-02-22,4.826,24
+"WHGH1","Waimea Heights",2021-02-22,0,24
+"WHSH1","Waiahole (USGS)",2021-02-22,0,24
+"WKAH1","Waiakea Uka (5030)",2021-02-22,4.826,24
+"WKRH1","Waiakoali (USGS)",2021-02-22,0.254,24
+"WKVH1","Waikoloa",2021-02-22,0,24
+"WLDH1","N Wailua Ditch (USGS)",2021-02-22,3.556,24
+"WLGH1","Waialae (USGS)",2021-02-22,0.254,24
+"WLLH1","Mount Waialeale (USGS)",2021-02-22,15.494,24
+"WMLH1","Waimanalo (13011)",2021-02-22,0,24
+"WMTH1","Waimea Tank (12007)",2021-02-22,0,24
+"WNVH1","Waianae Valley",2021-02-22,0,24
+"WPPH1","Waihee Pump (13002)",2021-02-22,1.016,24
+"WUHH1","Wailua (12005)",2021-02-22,0,24
+"WUKH1","Wailuku (14007)",2021-02-22,0,24
+"WWFH1","Waiawa",2021-02-22,0,24
+"WWKH1","West Wailuaiki (USGS)",2021-02-22,6.35,24
