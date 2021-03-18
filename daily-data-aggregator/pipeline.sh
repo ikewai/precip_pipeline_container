@@ -10,7 +10,7 @@
 # 
 # scan_final uses data/raw/scan/raw_parsed  ;
 #                 data/raw/scan/daily_agg   ;
-
+# THIS IS NOW OUTDATED, CHANGING WITH NEXT COMMIT
 chmod -R 777 /work
 
 cd /work
@@ -35,6 +35,9 @@ ls /work/data/raw/scan/raw_parsed
 
 # Upload Data/Results
 python3 /usr/src/app/uploader.py
+
+# Run Ingestion Flow
+
 
 exit 0
 EOF

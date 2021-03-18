@@ -1,27 +1,20 @@
 FROM ikewai/rainfallbase
 
+# Main working directory of the container
 WORKDIR /usr/src/app
 
+# Copy operational scripts
 COPY pipeline.sh /usr/src/app/pipeline.sh
 COPY uploader.py /usr/src/app/uploader.py
 
-
-## Container Setup 
-
-# Install Git, to grab the scripts, and Python, to execute them.
-# Tapipy may be needed for using the uploader script, once it is written.
-RUN apt install git python3 python3-pip -y
-RUN pip3 install agavepy
-
 # Get latest versions of data processing scripts
-# Future: These scripts will come from the 'rainfallscripts' repo, once it's ready.
-RUN git clone https://github.com/ikewai/precip_pipeline_container.git /usr/src/app/repo
-
 RUN mkdir /usr/src/app/scripts
 
-RUN cp /usr/src/app/repo/final_scripts/* /usr/src/app/scripts/.
+COPY ../final_scripts/* /usr/src/app/scripts/.
 
-# chmod everything in /usr/src/app 777, recursively
+# Allow read-write-execute to operational directories,
+# to allow any user of the container to do what it needs.
 RUN chmod -R 777 /usr/src/app
 
+# Start pipeline script when container is launched
 CMD ["bash", "pipeline.sh"]
