@@ -10,7 +10,7 @@ COPY uploader.py /usr/src/app/uploader.py
 # Get latest versions of data processing scripts
 RUN mkdir /usr/src/app/scripts
 
-COPY ../final_scripts/* /usr/src/app/scripts/.
+COPY ../final_scripts /usr/src/app/scripts/.
 
 # Allow read-write-execute to operational directories,
 # to allow any user of the container to do what it needs.
