@@ -5,12 +5,12 @@ WORKDIR /usr/src/app
 
 # Copy operational scripts
 COPY pipeline.sh /usr/src/app/pipeline.sh
-COPY uploader.py /usr/src/app/uploader.py
+COPY gateway_scripts/uploader.py /usr/src/app/.
+COPY gateway_scripts/downloader.py /usr/src/app/.
 
-# Get latest versions of data processing scripts
+# Copy acquisition/aggregation scripts
 RUN mkdir /usr/src/app/scripts
-
-COPY ../final_scripts /usr/src/app/scripts/.
+COPY final_scripts/* /usr/src/app/scripts/.
 
 # Allow read-write-execute to operational directories,
 # to allow any user of the container to do what it needs.
