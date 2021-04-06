@@ -10,9 +10,9 @@ This repo is still in heavy development.
 
 ### Contents
 
-- [`daily-data-aggregator`](https://hub.docker.com/repository/docker/ikewai/daily-data-aggregator): This container handles daily aggregation and processing of data into useful forms. Built on the [`ikewai/rainfallbase`](https://hub.docker.com/repository/docker/ikewai/rainfallbase) image.
+- Files for [`daily-data-aggregator`](https://hub.docker.com/repository/docker/ikewai/daily-data-aggregator): This container handles daily aggregation and processing of data into useful forms. Built on the [`ikewai/rainfallbase`](https://hub.docker.com/repository/docker/ikewai/rainfallbase) image.
 
-- `docs`: Documentation on the architecture and usage of the containers and scripts.  
+- `docs`: Documentation on the architecture and usage of the containers and scripts. Currently out of date; will be improved once project is in production.
 
 ----
 ### Usage Overview
