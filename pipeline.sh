@@ -36,8 +36,8 @@ r /usr/src/app/scripts/scan_final.r
 # For initial testing: display the contents of the raw_parsed folder.
 ls /work/data/raw/scan/raw_parsed
 
-# Upload Data/Results (temporarily disabled for development)
-#python3 /usr/src/app/uploader.py
+# Upload Data/Results
+python3 /usr/src/app/uploader.py
 
 # Run Ingestion Flow
 

@@ -59,6 +59,8 @@ def upload_files_via_requests(upload_url, api_token, dirs_to_upload):
     print(res)
 
 # Finally, upload the files.
-res = upload_files_via_requests(upload_url, api_token, dirs_to_upload)
+
+print(f"Upload URL: {upload_url}\nApi token: {api_token}\nDirs to upload: {dirs_to_upload}")
+#res = upload_files_via_requests(upload_url, api_token, dirs_to_upload)
 
 # take action based on response (success, etc)
