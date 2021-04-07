@@ -1,3 +1,6 @@
-daily-data-aggregator/create_actor.ipynb
-daily-data-aggregator/run_actor.ipynb
-daily-data-aggregator/uploader.ipynb
+create_actor.ipynb
+run_actor.ipynb
+uploader.ipynb
+uploader_v2.ipynb
+cron_actor.ipynb
+*.ipynb
