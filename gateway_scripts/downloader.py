@@ -2,18 +2,24 @@
 # - Station list
 # - Previous day's cumulative data (if not first day of the month)
 
-from agavepy import actors
-import json
+from agavepy import actors, Agave
+import json, os, datetime
 
-# Pull variables from abaco message.
-# msg is a python dictionary, returned from the JSON-parsing get_context().
-# api_token is a permanent token.
-msg = actors.get_context()
-if "json" in msg['content_type']:
-    msg_dict = msg['message_dict']
-else:
-    print("the message isn't in json format.")
-    exit(1)
+ag = Agave()
+ag.restore()
 
-upload_url      = msg_dict['gw_upload_url']
-api_token       = msg_dict['gw_api_token']
+current_year: int = datetime.datetime.now().year
+current_month: int = datetime.datetime.now().month
+current_day: int = datetime.datetime.now().day
+# year/month/previous_day or one day back on month/year accordingly
+
+# Check if we're at the start of the month, we'll want the last day of last month's data if so.
+isFirstDayOfMonth: bool = (current_day == 1)
+# Check if we're also at the start of the year, we'll want the last day of last year's data if so.
+isFirstMonthOfYear: bool = (current_month == 1)
+
+if isFirstDayOfMonth and not isFirstMonthOfYear:
+    """set the appropriate directory variables"""
+
+if isFirstDayOfMonth and isFirstMonthOfYear:
+    """set the appropriate directory variables"""

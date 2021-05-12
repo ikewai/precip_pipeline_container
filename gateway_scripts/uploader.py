@@ -7,55 +7,33 @@
 # - gw_upload_url:  The base URL to access the science gateway that files will be stored in.
 # - gw_api_token:   The api token to run this uploader with.
 
-import json
-import os
-import requests
-import mimetypes
-from agavepy import actors
+import json, os, datetime, mimetypes
 from agavepy import Agave
 
-# Pull variables from abaco message.
-# msg is a python dictionary, returned from the JSON-parsing get_context().
-# api_token is a permanent token.
-msg = actors.get_context()
-if "json" in msg['content_type']:
-    msg_dict = msg['message_dict']
-else:
-    print("the message isn't in json format.")
-    exit(1)
-
-upload_url      = msg_dict['gw_upload_url']
-api_token       = msg_dict['gw_api_token']
-
+ag = Agave()
+ag.restore()
+ag.token.create()
 # Set up upload directories
-with open("file_list.json") as file_list:
-    dirs_to_upload = json.loads(file_list.read())
-# Directories will probably be programmatically changed, based on year/month/day
+with open("file_upload_list.json") as file_list:
+    files_to_upload: list = json.loads(file_list.read())
 
+# map csv to text/csv instead of application/vnd.ms-excel
+mimetypes.add_type('text/csv', '.csv', strict=True)
 
-def upload_files_via_requests(upload_url, api_token, dirs_to_upload):
-    headers = {
-        'accept': 'application/json',
-        'authorization': "Bearer " + api_token,
-        'content-type': 'application/json; charset=utf-8'
-    }
-    
-    # map csv to text/csv instead of application/vnd.ms-excel
-    mimetypes.add_type('text/csv', '.csv', strict=True)
-
-    file_list = []
-    for directory in dirs_to_upload['dirs']: # need to ensure that directory has a slash at end - os.path.join (directory, filename)
-        for file in os.listdir(path=directory): # check for cases where directories are nested within the directories here
-            # Append this file to the list of files.
-            file_list.append(
-                ('file', (file, open(directory+file, 'rb'), mimetypes.guess_type(file)))
-            )
-    res = requests.post(headers=headers, url=upload_url, files=file_list)
-    print(res)
+# Make the directories to upload into
+upload_dir = '/containerization'
+current_year: str = str(datetime.datetime.now().year)
+current_month: str = str(datetime.datetime.now().month)
+current_day: str = str(datetime.datetime.now().day)
+ag.files.manageOnDefaultSystem(body={"action": "mkdir", "path": current_year}, sourceFilePath=upload_dir)
+ag.files.manageOnDefaultSystem(body={"action": "mkdir", "path": current_month}, sourceFilePath=f"{upload_dir}/{current_year}")
+ag.files.manageOnDefaultSystem(body={"action": "mkdir", "path": current_day}, sourceFilePath=f"{upload_dir}/{current_year}/{current_month}")
 
 # Finally, upload the files.
-
-print(f"Upload URL: {upload_url}\nApi token: {api_token}\nDirs to upload: {dirs_to_upload}")
-#res = upload_files_via_requests(upload_url, api_token, dirs_to_upload)
+print(f"Files to upload: {files_to_upload}")
+for file_path in files_to_upload:
+    fileToUpload = open(file_path, 'rb')
+    #File Name may be autogen, file path will be based on run date, via the making directories
+    res = ag.files.importData(fileName="FILENAMEHERE", filePath="FILEPATHHERE", fileToUpload=fileToUpload)
 
 # take action based on response (success, etc)
