@@ -1,11 +1,4 @@
-# Data uploader for workflow automation using the Agave (v2) API for actors,
-# and the usual REST requests for upload.
-
-
-# Notes for continued implementation:
-# The message sent to the actor needs to be a JSON object that includes the following:
-# - gw_upload_url:  The base URL to access the science gateway that files will be stored in.
-# - gw_api_token:   The api token to run this uploader with.
+# Data uploader for workflow automation using Agave v2 for actors and file upload.
 
 import json, os, datetime, mimetypes
 from typing import List
@@ -18,9 +11,6 @@ ag.token.create()
 # Set up upload directories
 with open("file_upload_list.json") as file_list:
     files_to_upload: list = json.loads(file_list.read())['data']
-
-# map csv to text/csv instead of application/vnd.ms-excel
-mimetypes.add_type('text/csv', '.csv', strict=True)
 
 # Make the directories to upload into
 base_upload_dir = '/containerization'
