@@ -15,13 +15,9 @@ ag = Agave()
 ag.restore()
 ag.token.create()
 
-class fileNameAndPath:
-    fileName: str
-    filePath: str
-
 # Set up upload directories
 with open("file_upload_list.json") as file_list:
-    files_to_upload: list[fileNameAndPath] = json.loads(file_list.read())['data']
+    files_to_upload: list = json.loads(file_list.read())['data']
 
 # map csv to text/csv instead of application/vnd.ms-excel
 mimetypes.add_type('text/csv', '.csv', strict=True)
@@ -39,5 +35,5 @@ ag.files.manageOnDefaultSystem(body={"action": "mkdir", "path": current_day}, so
 # Finally, upload the files.
 print(f"Files to upload: {files_to_upload}")
 for fnap in files_to_upload:
-    fileToUpload = open(fnap.filePath, 'rb')
-    res = ag.files.importData(fileName=fnap.fileName, filePath=f"{base_upload_dir}/{current_year}/{current_month}/{current_day}", fileToUpload=fileToUpload)
+    fileToUpload = open(fnap['filePath'], 'rb')
+    res = ag.files.importData(fileName=fnap['fileName'], filePath=f"{base_upload_dir}/{current_year}/{current_month}/{current_day}", fileToUpload=fileToUpload)
