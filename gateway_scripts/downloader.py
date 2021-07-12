@@ -4,6 +4,7 @@ import json, os, datetime, calendar
 ag = Agave()
 ag.restore()
 
+# TODO change this to run on file_download_list instead of hardcode
 files_to_get: list(dict(str)) = [{"remote_filename":"test_file.txt", "local_filepath":"/data/somewhere"},]
 current_year: int = datetime.datetime.now().year
 current_month: int = datetime.datetime.now().month
