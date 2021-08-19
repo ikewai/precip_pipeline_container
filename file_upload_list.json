@@ -1,0 +1,12 @@
+{"files_to_upload": 
+    [
+        {
+            "fileName": "examplefile1",
+            "filePath": "example/path/1"
+        }, 
+        {
+            "fileName": "examplefile1",
+            "filePath": "example/path/2"
+        }
+    ]
+}

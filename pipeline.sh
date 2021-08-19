@@ -24,8 +24,14 @@ raw/scan/daily_agg
 # For initial testing: display the contents of the work folder.
 ls /work
 
+# Set environment variables from abaco msg
+python3 /usr/src/app/set_env.py
+if [ $? -eq 1 ]; then
+    echo "There was a problem with set_env. Exiting pipeline."
 # Download necessary run-time prereqs
-#python3 /usr/src/app/downloader.py
+python3 /usr/src/app/downloader.py
+if [ $? -eq 1 ]; then
+    echo "There was a problem with downloader. Exiting pipeline."
 
 # HADS
 r /usr/src/app/scripts/hads_final.r
@@ -36,8 +42,10 @@ r /usr/src/app/scripts/scan_final.r
 # For initial testing: display the contents of the raw_parsed folder.
 ls /work/data/raw/scan/raw_parsed
 
-# Upload Data/Results (temporarily disabled for development)
-#python3 /usr/src/app/uploader.py
+# Upload Data/Results
+python3 /usr/src/app/uploader.py
+if [ $? -eq 1 ]; then
+    echo "There was a problem with uploader. Exiting pipeline."
 
 # Run Ingestion Flow
 
