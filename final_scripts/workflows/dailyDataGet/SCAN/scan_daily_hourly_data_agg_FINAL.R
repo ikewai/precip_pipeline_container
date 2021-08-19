@@ -4,7 +4,7 @@ Sys.setenv(TZ='Pacific/Honolulu') #set TZ to honolulu
 #install.packages(c("RNRCS","metScanR","lubridate"))
 require(RNRCS)
 require(metScanR)
-library(lubridate)
+require(lubridate)
 require(xts)
 
 #define function
@@ -17,6 +17,11 @@ rbind.all.columns <- function(x, y) {     #function to smart rbind
     		 x[, c(as.character(y.diff))] <- NA 
    		 y[, c(as.character(x.diff))] <- NA 
    		 return(rbind(x, y))}}}
+
+		 
+#set up dirs:server
+parse_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/SCAN/outFiles/parse"
+agg_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/SCAN/outFiles/agg"
 
 #get list of NRCS SCAN stations
 HI_NRCS<-names(getNetwork(network=c("NRCS"),getTerritory(territory=c("HI")))) #names of stations
@@ -49,7 +54,7 @@ for(i in ID){
 print("data collected and processed!")
 
 #write or append all raw hourly data
-setwd("/work/data/raw/scan/raw_parsed")#server path raw files
+setwd(parse_wd)#server path raw files
 files<-list.files()
 all_month_filename<-paste0("scan_raw_all_data_",format((Sys.Date()-1),"%Y_%m"),".csv")#dynamic filename that includes month year so when month is done new file is writen
 if(max(as.numeric(files==all_month_filename))>0){
@@ -58,7 +63,7 @@ if(max(as.numeric(files==all_month_filename))>0){
 
 
 #write or append daily rf data
-setwd("/work/data/raw/scan/daily_agg")#server path
+setwd(agg_daily_wd)#server path
 files<-list.files()
 rf_month_filename<-paste0("scan_daily_rf_",format((Sys.Date()-1),"%Y_%m"),".csv")#dynamic filename that includes month year so when month is done new file is writen
 if(max(as.numeric(files==rf_month_filename))>0){
