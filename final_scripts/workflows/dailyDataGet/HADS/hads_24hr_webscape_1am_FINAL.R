@@ -41,9 +41,9 @@ apply.hourly <- function(x, FUN, roundtime = "round", na.rm = TRUE){
  }#end apply.hrly function
 
 #set up dirs:server
-raw_page_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/HADS/outFiles/raw"
-parse_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/HADS/outFiles/parse"
-agg_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/HADS/outFiles/agg"
+raw_page_wd<-"/workflows/dailyDataGet/HADS/outFiles/raw"
+parse_wd<-"/workflows/dailyDataGet/HADS/outFiles/parse"
+agg_daily_wd<-"/workflows/dailyDataGet/HADS/outFiles/agg"
  
  
 #get data from HADS url

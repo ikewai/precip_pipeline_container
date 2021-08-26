@@ -10,9 +10,9 @@ print(paste("nws hrly data daily scrape run:",Sys.time()))#for cron log
 substrRight <- function(x, n){substr(x, nchar(x)-n+1, nchar(x))}
 
 #set up dirs:server
-raw_page_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/NWS/outFiles/raw"
-parse_hrly_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/NWS/outFiles/parse"
-agg_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/NWS/outFiles/agg"
+raw_page_wd<-"/workflows/dailyDataGet/NWS/outFiles/raw"
+parse_hrly_wd<-"/workflows/dailyDataGet/NWS/outFiles/parse"
+agg_daily_wd<-"/workflows/dailyDataGet/NWS/outFiles/agg"
 
 #blank df to store all DT and V from scrape
 dt_df<-data.frame()

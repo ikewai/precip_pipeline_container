@@ -1,20 +1,26 @@
 FROM ikewai/rainfallbase
 
 # Main working directory of the container
-WORKDIR /usr/src/app
+WORKDIR /container_scripts
 
 # Copy operational scripts
-COPY pipeline.sh /usr/src/app/pipeline.sh
-COPY gateway_scripts/uploader.py /usr/src/app/.
-COPY gateway_scripts/downloader.py /usr/src/app/.
+COPY pipeline.sh .
+COPY gateway_scripts/uploader.py container_scripts/.
+COPY gateway_scripts/downloader.py container_scripts/.
 
 # Copy acquisition/aggregation scripts
-RUN mkdir /usr/src/app/scripts
-COPY final_scripts/* /usr/src/app/scripts/
+WORKDIR /workflows
+RUN mkdir -p dailyDataCombine dailyDataGet/HADS dailyDataGet/NWS dailyDataGet/SCAN dailyQAQC
+COPY final_scripts/workflows/dailyDataCombine /workflows/dailyDataCombine/.
+COPY final_scripts/workflows/dailyDataGet/HADS/* /workflows/dailyDataGet/HADS/.
+COPY final_scripts/workflows/dailyDataGet/NWS/* /workflows/dailyDataGet/NWS/.
+COPY final_scripts/workflows/dailyDataGet/SCAN/* /workflows/dailyDataGet/SCAN/.
+COPY final_scripts/workflows/dailyQAQC/* /workflows/dailyQAQC/.
 
 # Allow read-write-execute to operational directories,
 # to allow any user of the container to do what it needs.
-RUN chmod -R 777 /usr/src/app
+RUN chmod -R 777 /workflows
+RUN chmod -R 777 /container_scripts
 
 # Start pipeline script when container is launched
-CMD ["bash", "pipeline.sh"]
+CMD ["bash", "/container_scripts/pipeline.sh"]

@@ -12,17 +12,17 @@ rbind.all.columns <- function(x, y) {     #function to smart rbind
     return(rbind(x, y))}
 
 #input dirs
-meta_data_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dependencies" #server meta data path
-hads_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/HADS/outFiles/agg" #hads daily agg data wd
-nws_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/NWS/outFiles/agg" #nws hourly daily agg wd
-scan_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/SCAN/outFiles/agg" #scan hourly daily agg wd
+meta_data_wd<-"/workflows/dependencies" #server meta data path
+hads_daily_wd<-"/workflows/dailyDataGet/HADS/outFiles/agg" #hads daily agg data wd
+nws_daily_wd<-"/workflows/dailyDataGet/NWS/outFiles/agg" #nws hourly daily agg wd
+scan_daily_wd<-"/workflows/dailyDataGet/SCAN/outFiles/agg" #scan hourly daily agg wd
 #smart ala wai daily agg wd
 
 #output dirs
-missing_sta_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataCombine/missing"
-count_log_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataCombine/count"
-rf_day_data_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataCombine/rainfall"
-rf_day_source_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataCombine/source"
+missing_sta_wd<-"/workflows/dailyDataCombine/missing"
+count_log_wd<-"/workflows/dailyDataCombine/count"
+rf_day_data_wd<-"/workflows/dailyDataCombine/rainfall"
+rf_day_source_wd<-"/workflows/dailyDataCombine/source"
 
 #add master metadata with SKN and lat long
 setwd(meta_data_wd)

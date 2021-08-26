@@ -193,7 +193,7 @@ interateError<-function(roundChecks,final_day_data,data_day_c10,ranfor_Zero_rf,r
 #end custom functions
 
 #set wd load file names for loop
-setwd("~/qaqc/data_atribute_run/output/finalData")
+setwd("/workflows/qaqc/data_attribute_run/output/finalData")
 files<-Sys.glob("*no_human_data_wide_FINAL_2020_11_13.csv")
 
 #define per county train thresh
@@ -208,7 +208,7 @@ s<-Sys.time()
 for(f in files){
   roundChecksCounty<-data.frame()#reset for runs within county
   
-  setwd("~/qaqc/data_atribute_run/output/finalData")
+  setwd("/workflows/qaqc/data_attribute_run/output/finalData")
   all_dat<-fread(f) #get county file
   #all_dat<-all_dat[all_dat$date %in% unique(all_dat$date)[sample(length(unique(all_dat$date)),100)],] #sample 100 days TESTING
   domain<-as.character(unique(all_dat$county))
@@ -392,14 +392,14 @@ for(f in files){
   }#end run loop
   e1<-Sys.time()
   roundChecksCounty$runDateID<-paste(roundChecksCounty$county,roundChecksCounty$run,roundChecksCounty$date,sep="_")
-  setwd("~/qaqc/data_atribute_run/final_results/iteration_analysis/")
+  setwd("/workflows/qaqc/data_attribute_run/final_results/iteration_analysis/")
   write.csv(roundChecksCounty,paste0(domain,"_bad_sta_intial_round.csv"),row.names = F)
   write(difftime(e1,s,units = "hours"),paste0(domain,"_intial_run_TT.txt"))
   roundChecksAll<-rbind(roundChecksAll,roundChecksCounty)#add county data to all data
   } #end county loop
 e2<-Sys.time()
 
-setwd("~/qaqc/data_atribute_run/final_results/iteration_analysis/")
+setwd("/workflows/qaqc/data_attribute_run/final_results/iteration_analysis/")
 write(difftime(e2,s,units = "hours"),"intial_run_TT.txt")
 write.csv(roundChecksAll,"all_bad_sta_intial_round.csv",row.names = F)
 

@@ -20,8 +20,8 @@ rbind.all.columns <- function(x, y) {     #function to smart rbind
 
 		 
 #set up dirs:server
-parse_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/SCAN/outFiles/parse"
-agg_daily_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataGet/SCAN/outFiles/agg"
+parse_wd<-"/workflows/dailyDataGet/SCAN/outFiles/parse"
+agg_daily_wd<-"/workflows/dailyDataGet/SCAN/outFiles/agg"
 
 #get list of NRCS SCAN stations
 HI_NRCS<-names(getNetwork(network=c("NRCS"),getTerritory(territory=c("HI")))) #names of stations

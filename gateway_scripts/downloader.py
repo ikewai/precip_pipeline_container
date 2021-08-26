@@ -4,8 +4,8 @@ import json, os, datetime, calendar
 ag = Agave()
 ag.restore()
 
-# TODO change this to run on file_download_list instead of hardcode
-files_to_get: list(dict(str)) = [{"remote_filename":"test_file.txt", "local_filepath":"/data/somewhere"},]
+with open("file_download_list.json") as file_list:
+    files_to_download: list = json.loads(file_list.read())['data']
 current_year: int = datetime.datetime.now().year
 current_month: int = datetime.datetime.now().month
 current_day: int = datetime.datetime.now().day
@@ -30,7 +30,7 @@ if isFirstDayOfMonth and isFirstMonthOfYear:
     previous_day_data_dir = f"{last_year}/{last_month}/{last_day_of_last_month}"
 
 # Next, execute the actual downloading of the station list and the previous day's data.
-for file in files_to_get:
+for file in files_to_download:
     ag.files_download(
         f"precip_data/{previous_day_data_dir}/{file['remote_filename']}", 
         f"{file['local_filepath']/{file['remote_filename']}}"

@@ -16,11 +16,11 @@ library(randomForest)
 # qaqc_models_wd<-"C:\\Users\\Matt Lucas\\Documents\\dev\\hcdp\\daily_rainfall\\qaqc\\models_rds\\randfor"
 
 #dirs
-meta_data_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dependencies" #server meta data path
-rf_day_data_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyDataCombine/rainfall"
-lognorm_ras_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dependencies/probRasters"
-qaqc_models_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dependencies/models"
-rf_day_qaqc_data_wd<-"/home/mplucas/precip_pipeline_container/final_scripts/workflows/dailyQAQC/rainfall_QAQC"
+meta_data_wd<-"/workflows/dependencies" #server meta data path
+rf_day_data_wd<-"/workflows/dailyDataCombine/rainfall"
+lognorm_ras_wd<-"/workflows/dependencies/probRasters"
+qaqc_models_wd<-"/workflows/dependencies/models"
+rf_day_qaqc_data_wd<-"/workflows/dailyQAQC/rainfall_QAQC"
 
 
 #rf to prob function
