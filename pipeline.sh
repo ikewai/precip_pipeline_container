@@ -53,6 +53,7 @@ mkdir -p \
 
 # Download, Decompress, Place Dependency Data Files
 cd /workflows/dependencies
+echo "downloading dependency folder"
 wget -q https://ikeauth.its.hawaii.edu/files/v2/download/publidc/system/ikewai-annotated-data/Rainfall/hcdp_dep.zip
 unzip hcdp_dep.zip
 mv -f HCDP_dep*s/* /workflows/dependencies/.
