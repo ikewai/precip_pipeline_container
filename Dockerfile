@@ -5,8 +5,10 @@ WORKDIR /container_scripts
 
 # Copy operational scripts
 COPY pipeline.sh .
-COPY gateway_scripts/uploader.py container_scripts/.
-COPY gateway_scripts/downloader.py container_scripts/.
+COPY gateway_scripts/uploader.py .
+COPY gateway_scripts/downloader.py .
+COPY gateway_scripts/set_env.py .
+COPY gateway_scripts/offline_testing.py .
 
 # Copy acquisition/aggregation scripts
 WORKDIR /workflows

@@ -19,3 +19,4 @@ cron_actor.ipynb
 *.ipynb
 final_scripts/workflows/dependencies/probRasters
 final_scripts/workflows/dependencies/models
+offline.env

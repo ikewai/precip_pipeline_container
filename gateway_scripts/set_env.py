@@ -1,8 +1,13 @@
 from io import TextIOWrapper
+from os.path import exists
 from agavepy import actors
 import os, json
 
 from agavepy.agave import AttrDict
+
+if exists("/container_scripts/offline.env"):
+    print("offline.env exists, skipping set_env.py")
+    exit(0)
 
 # Pull variables from abaco message.
 # msg is a python dictionary, returned from the JSON-parsing get_context().

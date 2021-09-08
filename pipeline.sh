@@ -1,7 +1,5 @@
 #Script for Data Processing Pipeline
 
-# NOTE: This is currently configured for offline testing.
-
 ### SETUP ###
 # all_data_daily_merge_table_FINAL.R
 mkdir -p \
@@ -43,13 +41,17 @@ mkdir -p \
 /workflows/qaqc/data_attribute_run/final_results/iteration_analysis \
 
 # Set environment variables from abaco msg
-# python3 /usr/src/app/set_env.py
-# if [ $? -eq 1 ]; then
-#     echo "There was a problem with set_env. Exiting pipeline."
-# # Download necessary run-time prereqs
-# python3 /usr/src/app/downloader.py
-# if [ $? -eq 1 ]; then
-#     echo "There was a problem with downloader. Exiting pipeline."
+python3 /container_scripts/set_env.py
+if [ $? -ne 0 ]; then
+    echo "There was a problem with set_env."
+# Set environment variables from offline env
+python3 /container_scripts/offline_testing.py
+if [ $? -ne 0 ]; then
+    echo "There was a problem with offline_testing."
+# Download necessary run-time prereqs
+#python3 /container_scripts/downloader.py
+#if [ $? -eq 1 ]; then
+#    echo "There was a problem with downloader. Exiting pipeline."
 
 # Download, Decompress, Place Dependency Data Files
 cd /workflows/dependencies
